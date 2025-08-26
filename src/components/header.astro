@@ -11,7 +11,11 @@ const { link = "/", title = "Home"} = Astro.props as {
 
 <nav class="Navbar">
   <div class="brand">
-      <a href="/" class="name"> Nicholas Chan </a>
+     {Astro.url.pathname === "/" ? (
+  <span class="name">Nicholas Chan</span>
+) : (
+  <a href="/" class="name">Nicholas Chan</a>
+)}
     /
       <a href="/" class="page" href={link}> { title } </a>
   </div>  
