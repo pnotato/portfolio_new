@@ -1,15 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Home from '../layouts/Layout.astro'
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Wave from '../assets/waves_long.svg'
 ---
 
-<!-- <Layout>
-	<Welcome />
-</Layout> -->
-
 <Home>
+	<div class="intro">
+		<h1>Hi, I'm Nick.</h1>
+		<p>I’m a computer science student based in Vancouver, BC. I was previously a systems intern at the <a href="https://www.bcgsc.ca/">BC Cancer Research Centre.</a></p>
+		<p>I’m interested in embedded systems, scripting, and data science.</p>
+	</div>
+	<div class="wave">
+		<Wave />
+	</div>
+	<div class="hero">
 
+	</div>
+	<div class="wave reverse">
+		<Wave />
+	</div>
+	
+
+	<style>
+	.intro {
+		width: 50%;
+		font-size: 3rem;
+		padding: 0 3rem 0 3rem;
+	}
+
+	.intro a {
+		color: #F2D8A7;
+		text-decoration: none;
+	}
+	.wave {
+		width: 100%;
+		overflow: hidden;
+	}
+	.wave svg {
+	display: block;
+	}
+	.wave.reverse svg {
+		transform: scaleY(-1);
+	}
+
+	.hero {
+		height: 100vh;
+		width:100%;
+		background-color: #E85D5E;
+	}
+	</style>
 </Home>
