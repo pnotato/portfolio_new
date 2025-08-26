@@ -1,0 +1,65 @@
+
+.Navbar {
+  position: sticky;
+  top: var(--border-width);  /* starts at that offset, then sticks */
+  left: var(--border-width);
+  right: var(--border-width);
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient( rgba(0,0,0,0.25), rgba(0,0,0,0));
+  align-items: center;
+  padding: 0 5rem;
+  font-size: 1.3rem;
+}
+
+/* This adds the border on the top. Experimental! */
+.frame-top {
+  position: fixed;
+  top: 0;
+  left: var(--border-width);
+  right: var(--border-width);
+  height: var(--border-width);
+  background: white;
+  pointer-events: none; 
+}
+
+
+.brand {
+  color: white;
+  
+}
+
+.brand .name {
+  color: white;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand .page {
+  color: white;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.brand .page:hover {
+  color: #F2D8A7;
+  transition: color 0.2s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  font-family: Geist;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #F2D8A7;
+  transition: color 0.2s;
+}
