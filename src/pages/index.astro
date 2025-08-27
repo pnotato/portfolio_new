@@ -1,10 +1,13 @@
 ---
 import Home from '../layouts/Layout.astro'
 import Wave from '../assets/waves_long.svg'
+import LinkedIn from '../assets/linkedin.svg'
+import Mail from '../assets/mail.svg'
+import Github from '../assets/github.svg'
 ---
 
 <Home>
-	<div class="intro">
+	<div class="intro-content">
 		<h1>Hi, I'm Nick.</h1>
 		<p>I’m a computer science student based in Vancouver, BC. I was previously a systems intern at the <a href="https://www.bcgsc.ca/">BC Cancer Research Centre.</a></p>
 		<p>I’m interested in embedded systems, scripting, and data science.</p>
@@ -13,7 +16,28 @@ import Wave from '../assets/waves_long.svg'
 		<Wave />
 	</div>
 	<div class="hero">
+		<div class="intro-content">
 
+		<p>At <a href="https://www.sfu.ca/">Simon Fraser University</a>, I'm currently a Software Developer for our Robot Soccer Team.</p>
+		<p>I also previously helped build <a>AumOui</a>’s website.</p>
+		<p>Take a look at my <a>resume</a>, or read more about my experiences <a>here</a>.</p>
+		
+		<div class="socials">
+			<div class="link">
+				<LinkedIn />
+				<a href="https://www.linkedin.com/in/nicholasch-an/">nicholasch-an</a>
+			</div>
+			<div class="link">
+				<Github />
+				<a href="https://github.com/pnotato/">github.com/pnotato</a>
+			</div>
+			<div class="link">
+				<Mail />
+				<a href="mailto:nicholasch.an@outlook.com">nicholasch.an@outlook.com</a>
+			</div>
+		</div>
+
+		</div>
 	</div>
 	<div class="wave reverse">
 		<Wave />
@@ -21,15 +45,26 @@ import Wave from '../assets/waves_long.svg'
 	
 
 	<style>
-	.intro {
-		width: 50%;
-		font-size: 3rem;
-		padding: 0 3rem 0 3rem;
+	.intro-content {
+		padding: 0 3rem 3rem 3rem;
 	}
 
-	.intro a {
+	.intro-content {
+		width: 50%;
+		font-size: 2.3rem;
+	}
+
+	.intro-content a {
 		color: #F2D8A7;
 		text-decoration: none;
+	}
+	.intro-content a:hover {
+		color: #F2C78A;
+		transition: color 0.2s;
+	}
+	.intro-content .linkedin {
+		display: block;
+		margin-bottom: 0;
 	}
 	.wave {
 		width: 100%;
@@ -43,9 +78,22 @@ import Wave from '../assets/waves_long.svg'
 	}
 
 	.hero {
-		height: 100vh;
+		height: fit-content;
 		width:100%;
 		background-color: #E85D5E;
+		padding: var(--border-indent) 0 0 0;
+		overflow: hidden;
 	}
+	.hero h1,
+	.hero p,
+	.hero a {
+		margin-top: 0;
+	}
+	.link {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+	
 	</style>
 </Home>

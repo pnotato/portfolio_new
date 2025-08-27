@@ -4,7 +4,7 @@
   top: 0;  /* starts at that offset, then sticks */
   left: var(--border-width);
   right: var(--border-width);
-  height: calc(var(--border-width) * 3.5);
+  height: var(--border-indent);
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient( rgba(0,0,0,0.25), rgba(0,0,0,0));
@@ -32,7 +32,7 @@
 }
 
 .brand .page:hover {
-  color: #F2D8A7;
+  color: #F2C78A;
   transition: color 0.2s;
 }
 
@@ -49,6 +49,6 @@
 }
 
 .nav-links a:hover {
-  color: #F2D8A7;
+  color: #F2C78A;
   transition: color 0.2s;
 }
