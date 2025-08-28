@@ -4,11 +4,12 @@
 :root {
   --border-width: 20px;
   --border-indent: calc(var(--border-width) * 3.5);
+  --background-blue: #181743;
 }
 
 body {
   margin: 0;
-  background-color: #1E2D59;
+  background-color: var(--background-blue);
   border: var(--border-width) solid white;
   border-top: none;
   min-height: 100vh; 
@@ -31,7 +32,7 @@ h1 {
 }
 
 .content-wrapper {
-    margin-top: calc(var(--border-width) * 5);   
+    margin-top: calc(var(--border-width) * 3);   
     /* background-color: red; */
     height: 100%;
     

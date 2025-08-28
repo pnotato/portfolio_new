@@ -4,19 +4,29 @@ import Wave from '../assets/waves_long.svg'
 import LinkedIn from '../assets/linkedin.svg'
 import Mail from '../assets/mail.svg'
 import Github from '../assets/github.svg'
+import Planet from '../components/planet.astro'
 ---
 
 <Home>
-	<div class="intro-content">
-		<h1>Hi, I'm Nick.</h1>
-		<p>I’m a computer science student based in Vancouver, BC. I was previously a systems intern at the <a href="https://www.bcgsc.ca/">BC Cancer Research Centre.</a></p>
-		<p>I’m interested in embedded systems, scripting, and data science.</p>
+	<div class="intro-section">
+		<div class="intro-content">
+				<h1>Hi, I'm Nick.</h1>
+				<p>I’m a computer science student based in Vancouver, BC. I was previously a systems intern at the <a href="https://www.bcgsc.ca/">BC Cancer Research Centre.</a></p>
+				<p>I’m interested in embedded systems, scripting, and data science.</p>
+		</div>
+		<Planet />
 	</div>
+	
+	<!-- <div class="planet-container">
+		<Planet />
+	</div> -->
 	<div class="wave">
 		<Wave />
 	</div>
 	<div class="hero">
+		
 		<div class="intro-content">
+
 
 		<p>At <a href="https://www.sfu.ca/">Simon Fraser University</a>, I'm currently a Software Developer for our Robot Soccer Team.</p>
 		<p>I also previously helped build <a>AumOui</a>’s website.</p>
@@ -45,13 +55,18 @@ import Github from '../assets/github.svg'
 	
 
 	<style>
+	.intro-section {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
 	.intro-content {
-		padding: 0 3rem 3rem 3rem;
+		padding: 0 0 0rem 3rem;
 	}
 
 	.intro-content {
-		width: 50%;
-		font-size: 2.3rem;
+		width: min(50%, 800px);
+		font-size: 2.5rem;
 	}
 
 	.intro-content a {
@@ -94,6 +109,7 @@ import Github from '../assets/github.svg'
 		gap: 1rem;
 		align-items: center;
 	}
+
 	
 	</style>
 </Home>

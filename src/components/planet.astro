@@ -1,0 +1,317 @@
+<!-- Inspired by https://codepen.io/maaarj/pen/YZLEBM -->
+<div class="planet-scene">
+	<div class="stars-container">
+		<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+		<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+		<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+		<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+        
+		<div class="stars-2"></div>
+		<div class="stars-2"></div>
+		<div class="stars-2"></div>
+	</div>
+
+	<div class="moon"></div>
+
+	<div class="planet-container">
+		<div class="planet-ring2"></div>
+		<div class="planet"></div>	
+		<div class="shine"></div>
+		<div class="shine-2"></div>
+		<div class="planet-ring"></div>
+		<div class="planet-crater"></div>
+	</div>
+
+</div>
+<style lang="scss">
+    $purple1 : #181743;
+$purple2 : #730F8E;
+$purple-pink:#A21190;
+$pink : #C62368;
+$purple-pink1: #CE0682;
+$blue: #8FA8D9;
+$light-pink: #eb6db4;
+$fuscia : #C62368;
+$meteor-yellow: #fedc01;
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{"$animationName"} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+.planet-scene {
+
+	position: relative;
+	width: min(90vw, 420px);
+	aspect-ratio: 1 / 1;
+	margin: 0 auto;
+
+	overflow: visible;
+}
+
+.planet-container {
+	width:200px;
+	height:200px;
+	padding:20px;
+	border-radius: 200px;
+	background: linear-gradient(150deg, $fuscia, transparent,transparent);
+	position: absolute;
+	animation: planet-moving 2s ease infinite;
+	transition: all 0.2s ease;
+	transform: translateY(30px);
+	left: 42%;
+	.shine {
+		width: 0;
+		height: 0;
+		position:absolute;
+		border-left: 35px solid transparent;
+		border-right: 35px solid transparent;
+		border-top: 28px solid $light-pink;
+		border-radius: 50%;
+		transform: rotate(-40deg);
+		top: 45px;
+		left: 38px;
+		&::after {
+			content:"";
+			position:absolute;
+			background: linear-gradient(190deg,#c90779, #770e8d, #35145a);
+			height:160px;
+			width:160px;
+			border-radius: 100px;
+			left: -78px;
+    			top: -16px;
+		}
+	} //end of shine
+	
+	.shine-2 {
+		position: absolute;
+		width: 13px;
+		height: 11px;
+		background: #eb6db4;
+		border-radius: 100px;
+		top: 65px;
+		left: 45.5px;
+		transform: rotate(-55deg);
+		&::after {
+			@extend .shine-2;
+			content: "";
+			top: 9px;
+			left: 43.5px;
+			transform: rotate(206deg);
+			width: 12px;
+			height: 10px;
+		}
+		
+		&::before {
+			content :"";
+			position:absolute;
+			height:10px;
+			width:14px;
+			background:$light-pink;
+			border-radius: 200px;
+			top: 24px;
+			left: 60px;
+			transform: rotate(40deg);
+		}
+	}
+	.planet-ring {
+		width:300px;
+		height:40px;
+		position:absolute;
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid $fuscia;
+		border-left: 10px solid $fuscia;
+		border-right: 10px solid $fuscia;
+		border-radius: 100%;
+		left: -40px;
+		transform: rotate(-30deg);
+		top: 80px;
+		
+		&::after {
+			
+		}
+	}
+	
+	.planet-ring2 {
+		@extend .planet-ring;
+		border-top:10px solid $fuscia;
+		z-index:-1
+	} 
+	.planet {
+		width:200px;
+		height:200px;
+		background: linear-gradient(150deg, $fuscia, $purple2, transparent);
+		border-radius: 100px;
+	} //end of planet
+} //end of planet-container
+
+.stars-container {
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	transform: none;
+	.stars {
+		width:170px;
+		top: 140px;
+		position: relative;
+		left: 220px;
+		div:nth-child(1) {
+			width:20px;
+			position:relative;
+			height: 6px;
+			border-radius: 100%;
+			background:#fff;
+			animation: twinkle-width 1s ease infinite;
+		}
+		div:nth-child(2) {
+			width:6px;
+			height:20px;
+			top:-5px;
+			position:absolute;
+			background:#fff;
+			border-radius: 100%;
+			left:7px;
+			top: -7px;
+			transform-origin:middle;
+			animation: twinkle-height 1s ease infinite;
+		}	
+		
+		div:nth-child(3) {
+				background:#fff;
+				content: "";
+				position:absolute;
+				width:10px;
+				height:10px;
+				left: 5px;
+				top:-2px;
+				border-radius: 100px;
+		}
+	}
+	
+	.stars:nth-child(2) {
+		position:relative;
+		transform: scale(0.8);
+		top:60px;
+		left:80px;
+		div {
+			animation-delay: 0.5s;
+		}
+	}
+	.stars:nth-child(3) {
+		position:relative;
+		transform: scale(0.6);
+		top:20px;
+		left: 150px;
+		div {
+			animation-delay: 0.5s;
+		}
+	}
+	.stars:nth-child(4) {
+		position:relative;
+		transform: scale(0.5);
+		top:-50px;
+		left: 350px;
+		div {
+			animation-delay: 0.8s;
+		}
+	}
+	.stars-2 {
+		border-radius: 100%;
+		position: absolute;
+		animation: twinkle 0.5s ease infinite;
+	}
+	.stars-2:nth-child(5) {
+		width:10px;
+		height:10px;
+		background: linear-gradient(to right, $purple2, transparent);
+		left: 150px;
+		top:120px;
+		animation-delay: 0.2s;
+	}
+	
+	.stars-2:nth-child(6) {
+		width:10px;
+		height:10px;
+		background: linear-gradient(to right, transparent, $pink);
+		left: 420px;
+		top:-50px;
+	}
+	.stars-2:nth-child(7) {
+		width:8px;
+		height:8px;
+		background: linear-gradient(to right, transparent, $purple2);
+		left: 350px;
+		top:-70px;
+		
+		animation-delay: 0.8s;
+		animation-duration: 1s;
+	}
+}
+
+.moon {
+	width:100px;
+	height:100px;
+	border-radius: 100%;
+	background: linear-gradient(150deg, $blue 55%, $fuscia 98%);
+	position:absolute;
+	top: 20%; 
+    left: 10%;
+	animation: planet-moving2 2s ease infinite;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+	will-change: transform;
+	
+}
+
+
+@include keyframes(planet-moving) {
+	0%{top:30%}
+	50%{top:31%}
+	100%{top:30%}
+}
+
+@include keyframes(planet-moving2) {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(4px); }
+	100% { transform: translateY(0); }
+}
+@include keyframes(twinkle-height) {
+	0% { height: 20px;top:-7px}
+	50% { height: 10px; top:-3px}
+	100% { height: 20px;top:-7px}
+}
+
+@include keyframes(twinkle-width) {
+	0% { width: 20px;left:0px}
+	50% { width: 10px; left:5px}
+	100% { width: 20px;left:0px}
+}
+
+@include keyframes(twinkle) {
+	0%{opacity:0}
+	50%{opacity:1}
+	100%{opacity:0}
+}
+</style>
