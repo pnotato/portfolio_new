@@ -1,20 +1,28 @@
 ---
 import Home from '../layouts/Layout.astro'
 import Wave from '../assets/waves_long.svg'
-import LinkedIn from '../assets/linkedin.svg'
-import Mail from '../assets/mail.svg'
-import Github from '../assets/github.svg'
+import LinkedIn from '../assets/icons/linkedin.svg'
+import Mail from '../assets/icons/mail.svg'
+import Github from '../assets/icons/github.svg'
 import Planet from '../components/planet.astro'
+import Card from '../components/card.astro'
+import HireHigher from '../assets/project/hirehigher.jpg'
+import VisuDocs from '../assets/project/visudocs.jpg'
+import LoadBalancer from '../assets/project/loadbalancer.jpg'
+import { loadRenderers } from 'astro:container'
 ---
 
 <Home>
 	<div class="intro-section">
 		<div class="intro-content">
 				<h1>Hi, I'm Nick.</h1>
-				<p>I’m a computer science student based in Vancouver, BC. I was previously a systems intern at the <a href="https://www.bcgsc.ca/">BC Cancer Research Centre.</a></p>
-				<p>I’m interested in embedded systems, scripting, and data science.</p>
+				<p>I’m a computer science student based in Vancouver, BC. I was previously a systems intern at <a href="https://www.bcgsc.ca/">BC Cancer</a>.</p>
+				<p>I’m interested in embedded systems, programming, and data science.</p>
 		</div>
 		<Planet />
+	</div>
+	<div class="wave-gap">
+
 	</div>
 	
 	<!-- <div class="planet-container">
@@ -52,8 +60,20 @@ import Planet from '../components/planet.astro'
 	<div class="wave reverse">
 		<Wave />
 	</div>
+	<div class="projects-section">
+		<h1>Projects</h1>
+		<div class="cards-container">
+			
+			<Card label="HireHigher" image={HireHigher} />
+			<Card label="Load Balancer" image={LoadBalancer}/>
+			<Card label="VisuDocs" image={VisuDocs}/>
+		</div>
+		<div class="projects-button">
+			<a class="button" href="/">View All</a>	
+		</div>		
+	</div>
 	
-
+	
 	<style>
 	.intro-section {
 		display: flex;
@@ -61,13 +81,15 @@ import Planet from '../components/planet.astro'
 		align-items: center;
 	}
 	.intro-content {
-		padding: 0 0 0rem 3rem;
+		padding: 0 0 0 3rem;
 	}
 
 	.intro-content {
 		width: min(50%, 800px);
 		font-size: 2.5rem;
 	}
+
+
 
 	.intro-content a {
 		color: #F2D8A7;
@@ -81,12 +103,15 @@ import Planet from '../components/planet.astro'
 		display: block;
 		margin-bottom: 0;
 	}
+
 	.wave {
+		display: block;
 		width: 100%;
 		overflow: hidden;
 	}
 	.wave svg {
 	display: block;
+	margin-bottom: -1px;
 	}
 	.wave.reverse svg {
 		transform: scaleY(-1);
@@ -108,6 +133,23 @@ import Planet from '../components/planet.astro'
 		display: flex;
 		gap: 1rem;
 		align-items: center;
+	}
+	.projects-section {
+		padding: var(--border-indent) 3rem var(--border-indent) 3rem;
+	}
+	.cards-container {
+		display: flex;
+		justify-content: space-between;
+		gap: 3rem;
+	}
+	.projects-button {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1.5rem;
+	}
+	.projects-button a {
+		font-size: 1.3rem;
+		font-weight: 700;
 	}
 
 	

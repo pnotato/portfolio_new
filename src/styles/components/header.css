@@ -10,7 +10,7 @@
   background-image: linear-gradient( rgba(0,0,0,0.25), rgba(0,0,0,0));
   align-items: flex-end;
   padding: 0 3rem 3rem 3rem;
-  
+  z-index: 5;
   font-size: 1.3rem;
 }
 
@@ -43,12 +43,3 @@
   font-family: Geist;
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-links a:hover {
-  color: #F2C78A;
-  transition: color 0.2s;
-}

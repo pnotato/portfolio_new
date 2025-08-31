@@ -7,6 +7,10 @@
   --background-blue: #181743;
 }
 
+html {
+  font-size: clamp(14px, 1.2vw, 20px);
+}
+
 body {
   margin: 0;
   background-color: var(--background-blue);
@@ -15,12 +19,27 @@ body {
   min-height: 100vh; 
   font-family: Inter;
   color: white;
-  
+  z-index: 10; 
 }
 
 h1 {
     font-size: 3.5rem;
 }
+
+  a {
+		color: #F2D8A7;
+		text-decoration: none;
+	}
+
+  a.button{
+		color: white;
+		text-decoration: none;
+	}
+
+  a:hover {
+		color: #F2C78A;
+		transition: color 0.2s;
+	}
 
 /* Kind of a jank fix but this allows the navbar background to show up properly */
 .border {
@@ -28,11 +47,11 @@ h1 {
   width: 100%;
   height: var(--border-width);       
   background: white;               
-  z-index: 1;                        
+  z-index: 10;                        
 }
 
 .content-wrapper {
-    margin-top: calc(var(--border-width) * 3);   
+    margin-top: calc(var(--border-width) * 2);   
     /* background-color: red; */
     height: 100%;
     

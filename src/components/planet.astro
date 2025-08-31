@@ -10,11 +10,9 @@
 		<div class="stars">
 			<div></div><div></div><div></div>
 		</div>
-		<div class="stars">
-			<div></div><div></div><div></div>
-		</div>
+
         
-		<div class="stars-2"></div>
+
 		<div class="stars-2"></div>
 		<div class="stars-2"></div>
 	</div>
@@ -67,6 +65,7 @@ $meteor-yellow: #fedc01;
 	margin: 0 auto;
 
 	overflow: visible;
+	transform: translateX(-3em);
 }
 
 .planet-container {
@@ -138,10 +137,10 @@ $meteor-yellow: #fedc01;
 		width:300px;
 		height:40px;
 		position:absolute;
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid $fuscia;
-		border-left: 10px solid $fuscia;
-		border-right: 10px solid $fuscia;
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid $fuscia;
+		border-left: 25px solid $fuscia;
+		border-right: 25px solid $fuscia;
 		border-radius: 100%;
 		left: -40px;
 		transform: rotate(-30deg);
@@ -154,7 +153,7 @@ $meteor-yellow: #fedc01;
 	
 	.planet-ring2 {
 		@extend .planet-ring;
-		border-top:10px solid $fuscia;
+		border-top:20px solid $fuscia;
 		z-index:-1
 	} 
 	.planet {
