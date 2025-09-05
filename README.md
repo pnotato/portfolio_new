@@ -4,6 +4,8 @@
 npm create astro@latest -- --template basics
 ```
 
+# PORTFOLIO WIP
+
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure

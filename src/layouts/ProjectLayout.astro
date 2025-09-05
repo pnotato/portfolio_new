@@ -1,0 +1,19 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import Wave from '../assets/waves_long.svg'
+
+const { title = "Projects", description = "A project description", technologies = [], image } = Astro.props;
+---
+
+<BaseLayout link="/projects" title="Projects">
+	<div class="main-content">
+		<slot />
+	</div>
+
+</BaseLayout>
+
+<style>
+	.main-content {
+		padding: 0.4rem 0 0 3rem;
+	}
+</style>

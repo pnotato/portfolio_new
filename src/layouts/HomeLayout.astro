@@ -1,0 +1,26 @@
+---
+import Navbar from '../components/header.astro'
+const { link = "/", title = ""} = Astro.props as {
+    link: string;
+    title: string;
+}
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="stylesheet" href="/src/styles/base.css" />
+		<title>Nicholas Chan</title>
+	</head>
+	<body>
+		<Navbar link={link} title={title}/>
+		<div class="border" aria-hidden="true"></div> 
+		<div class="content-wrapper">
+			
+			<slot />
+		</div>
+	</body>
+</html>
+

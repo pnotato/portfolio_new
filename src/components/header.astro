@@ -1,8 +1,7 @@
 ---
 import "../styles/components/header.css";
 
-
-const { link = "/", title = "Home"} = Astro.props as {
+const { link, title } = Astro.props as {
     link: string;
     title: string;
 }
@@ -17,7 +16,7 @@ const { link = "/", title = "Home"} = Astro.props as {
   <a href="/" class="name">Nicholas Chan</a>
 )}
     /
-      <a href="/" class="page" href={link}> { title } </a>
+      <a class="page" href={link}> { title } </a>
   </div>  
   <div class="nav-links">
     <a class="button" href="/">About</a>  

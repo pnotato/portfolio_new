@@ -6,10 +6,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "add-project": "node scripts/add-project.js"
   },
   "dependencies": {
-    "astro": "^5.13.3"
+    "astro": "^5.13.3",
+    "gray-matter": "^4.0.3"
   },
   "devDependencies": {
     "sass": "^1.91.0"

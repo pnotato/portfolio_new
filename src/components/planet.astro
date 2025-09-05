@@ -10,6 +10,17 @@
 		<div class="stars">
 			<div></div><div></div><div></div>
 		</div>
+		<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+		<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+				<div class="stars">
+			<div></div><div></div><div></div>
+		</div>
+
+		
 
         
 
@@ -58,232 +69,272 @@ $meteor-yellow: #fedc01;
 }
 
 .planet-scene {
-
 	position: relative;
-	width: min(90vw, 420px);
-	aspect-ratio: 1 / 1;
+	width: min(90vw, 800px);
+	aspect-ratio: 1.2 / 1;
 	margin: 0 auto;
-
 	overflow: visible;
-	transform: translateX(-3em);
+	transform: translateX(-0.15em);
+	
+	/* Responsive scaling based on container size */
+	font-size: clamp(0.45rem, 1.8vw, 1.8rem);
 }
 
 .planet-container {
-	width:200px;
-	height:200px;
-	padding:20px;
-	border-radius: 200px;
+	width: 10em;
+	height: 10em;
+	padding: 1em;
+	border-radius: 10em;
 	background: linear-gradient(150deg, $fuscia, transparent,transparent);
 	position: absolute;
 	animation: planet-moving 2s ease infinite;
 	transition: all 0.2s ease;
-	transform: translateY(30px);
+
 	left: 42%;
+	
 	.shine {
 		width: 0;
 		height: 0;
-		position:absolute;
-		border-left: 35px solid transparent;
-		border-right: 35px solid transparent;
-		border-top: 28px solid $light-pink;
+		position: absolute;
+		border-left: 1.75em solid transparent;
+		border-right: 1.75em solid transparent;
+		border-top: 1.4em solid $light-pink;
 		border-radius: 50%;
 		transform: rotate(-40deg);
-		top: 45px;
-		left: 38px;
+		top: 2.25em;
+		left: 1.9em;
 		&::after {
 			content:"";
-			position:absolute;
+			position: absolute;
 			background: linear-gradient(190deg,#c90779, #770e8d, #35145a);
-			height:160px;
-			width:160px;
-			border-radius: 100px;
-			left: -78px;
-    			top: -16px;
+			height: 8em;
+			width: 8em;
+			border-radius: 5em;
+			left: -3.9em;
+			top: -0.8em;
 		}
-	} //end of shine
+	}
 	
 	.shine-2 {
 		position: absolute;
-		width: 13px;
-		height: 11px;
+		width: 0.65em;
+		height: 0.55em;
 		background: #eb6db4;
-		border-radius: 100px;
-		top: 65px;
-		left: 45.5px;
+		border-radius: 5em;
+		top: 3.25em;
+		left: 2.275em;
 		transform: rotate(-55deg);
 		&::after {
 			@extend .shine-2;
 			content: "";
-			top: 9px;
-			left: 43.5px;
+			top: 0.45em;
+			left: 2.175em;
 			transform: rotate(206deg);
-			width: 12px;
-			height: 10px;
+			width: 0.6em;
+			height: 0.5em;
 		}
 		
 		&::before {
-			content :"";
-			position:absolute;
-			height:10px;
-			width:14px;
-			background:$light-pink;
-			border-radius: 200px;
-			top: 24px;
-			left: 60px;
+			content: "";
+			position: absolute;
+			height: 0.5em;
+			width: 0.7em;
+			background: $light-pink;
+			border-radius: 10em;
+			top: 1.2em;
+			left: 3em;
 			transform: rotate(40deg);
 		}
 	}
+	
 	.planet-ring {
-		width:300px;
-		height:40px;
-		position:absolute;
-		border-top: 20px solid transparent;
-		border-bottom: 20px solid $fuscia;
-		border-left: 25px solid $fuscia;
-		border-right: 25px solid $fuscia;
+		width: 15em;
+		height: 2em;
+		position: absolute;
+		border-top: 1em solid transparent;
+		border-bottom: 1em solid $fuscia;
+		border-left: 1.25em solid $fuscia;
+		border-right: 1.25em solid $fuscia;
 		border-radius: 100%;
-		left: -40px;
+		left: -2em;
 		transform: rotate(-30deg);
-		top: 80px;
-		
-		&::after {
-			
-		}
+		top: 4em;
 	}
 	
 	.planet-ring2 {
 		@extend .planet-ring;
-		border-top:20px solid $fuscia;
-		z-index:-1
+		border-top: 1em solid $fuscia;
+		z-index: -1;
 	} 
+	
 	.planet {
-		width:200px;
-		height:200px;
+		width: 10em;
+		height: 10em;
 		background: linear-gradient(150deg, $fuscia, $purple2, transparent);
-		border-radius: 100px;
-	} //end of planet
-} //end of planet-container
+		border-radius: 5em;
+	}
+}
 
 .stars-container {
-	position:absolute;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	left: 0;
 	top: 0;
 	transform: none;
+	
 	.stars {
-		width:170px;
-		top: 140px;
+		width: 8.5em;
+		top: 7em;
 		position: relative;
-		left: 220px;
+		left: 11em;
 		div:nth-child(1) {
-			width:20px;
-			position:relative;
-			height: 6px;
+			width: 1em;
+			position: relative;
+			height: 0.3em;
 			border-radius: 100%;
-			background:#fff;
+			background: #fff;
 			animation: twinkle-width 1s ease infinite;
 		}
 		div:nth-child(2) {
-			width:6px;
-			height:20px;
-			top:-5px;
-			position:absolute;
-			background:#fff;
+			width: 0.3em;
+			height: 1em;
+			top: -0.25em;
+			position: absolute;
+			background: #fff;
 			border-radius: 100%;
-			left:7px;
-			top: -7px;
-			transform-origin:middle;
+			left: 0.35em;
+			top: -0.35em;
+			transform-origin: middle;
 			animation: twinkle-height 1s ease infinite;
 		}	
 		
 		div:nth-child(3) {
-				background:#fff;
-				content: "";
-				position:absolute;
-				width:10px;
-				height:10px;
-				left: 5px;
-				top:-2px;
-				border-radius: 100px;
+			background: #fff;
+			content: "";
+			position: absolute;
+			width: 0.5em;
+			height: 0.5em;
+			left: 0.25em;
+			top: -0.1em;
+			border-radius: 5em;
+		}
+	}
+
+	.stars:nth-child(1) {
+		position: relative;
+		transform: scale(0.8);
+		top: 5em;
+		left: 9em;
+		div {
+			animation-delay: 0.5s;
 		}
 	}
 	
 	.stars:nth-child(2) {
-		position:relative;
-		transform: scale(0.8);
-		top:60px;
-		left:80px;
+		position: relative;
+		transform: scale(1);
+		top: 3em;
+		left: 4em;
 		div {
 			animation-delay: 0.5s;
 		}
 	}
+	
+
+	
 	.stars:nth-child(3) {
-		position:relative;
-		transform: scale(0.6);
-		top:20px;
-		left: 150px;
+		position: relative;
+		transform: scale(1);
+		top: 4.5em;
+		left: 20em;
 		div {
-			animation-delay: 0.5s;
+			animation-delay: 0.3s;
 		}
 	}
-	.stars:nth-child(4) {
-		position:relative;
-		transform: scale(0.5);
-		top:-50px;
-		left: 350px;
+
+		.stars:nth-child(4) {
+		position: relative;
+		transform: scale(0.8);
+		top: 16em;
+		left: 3em;
 		div {
 			animation-delay: 0.8s;
 		}
+	
 	}
+
+
+
+	.stars:nth-child(5) {
+		position: relative;
+		transform: scale(0.5);
+		top: 1.5em;
+		left: 12.5em;
+		div {
+			animation-delay: 0.6s;
+		}
+	
+	}
+
+			.stars:nth-child(6) {
+		position: relative;
+		transform: scale(0.5);
+		top: 12.5em;
+		left: 4.5em;
+		div {
+			animation-delay: 0.8s;
+		}
+	
+	}
+	
 	.stars-2 {
 		border-radius: 100%;
 		position: absolute;
 		animation: twinkle 0.5s ease infinite;
 	}
+	
 	.stars-2:nth-child(5) {
-		width:10px;
-		height:10px;
+		width: 0.5em;
+		height: 0.5em;
 		background: linear-gradient(to right, $purple2, transparent);
-		left: 150px;
-		top:120px;
+		left: 7.5em;
+		top: 6em;
 		animation-delay: 0.2s;
 	}
 	
 	.stars-2:nth-child(6) {
-		width:10px;
-		height:10px;
+		width: 0.5em;
+		height: 0.5em;
 		background: linear-gradient(to right, transparent, $pink);
-		left: 420px;
-		top:-50px;
+		left: 21em;
+		top: -2.5em;
 	}
+	
 	.stars-2:nth-child(7) {
-		width:8px;
-		height:8px;
+		width: 0.4em;
+		height: 0.4em;
 		background: linear-gradient(to right, transparent, $purple2);
-		left: 350px;
-		top:-70px;
-		
+		left: 17.5em;
+		top: -3.5em;
 		animation-delay: 0.8s;
 		animation-duration: 1s;
 	}
 }
 
 .moon {
-	width:100px;
-	height:100px;
+	width: 5em;
+	height: 5em;
 	border-radius: 100%;
 	background: linear-gradient(150deg, $blue 55%, $fuscia 98%);
-	position:absolute;
+	position: absolute;
 	top: 20%; 
-    left: 10%;
+	left: 10%;
 	animation: planet-moving2 2s ease infinite;
 	animation-delay: 0.5s;
 	animation-fill-mode: both;
 	will-change: transform;
-	
 }
-
 
 @include keyframes(planet-moving) {
 	0%{top:30%}
@@ -292,20 +343,21 @@ $meteor-yellow: #fedc01;
 }
 
 @include keyframes(planet-moving2) {
-	0% { transform: translateY(0); }
-	50% { transform: translateY(4px); }
-	100% { transform: translateY(0); }
+	0% { transform: translateY(3rem); }
+	50% { transform: translateY(3rem + 0.2rem); }
+	100% { transform: translateY(3rem); }
 }
+
 @include keyframes(twinkle-height) {
-	0% { height: 20px;top:-7px}
-	50% { height: 10px; top:-3px}
-	100% { height: 20px;top:-7px}
+	0% { height: 1em; top: -0.35em}
+	50% { height: 0.5em; top: -0.15em}
+	100% { height: 1em; top: -0.35em}
 }
 
 @include keyframes(twinkle-width) {
-	0% { width: 20px;left:0px}
-	50% { width: 10px; left:5px}
-	100% { width: 20px;left:0px}
+	0% { width: 1em; left: 0em}
+	50% { width: 0.5em; left: 0.25em}
+	100% { width: 1em; left: 0em}
 }
 
 @include keyframes(twinkle) {

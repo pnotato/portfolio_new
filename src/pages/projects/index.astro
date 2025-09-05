@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Card from '../../components/card.astro'
+import { getAllProjects, getAllTags } from '../../data/projects.ts'
+
+const projects = await getAllProjects();
+const allTags = await getAllTags();
+---
+
+<BaseLayout link="/" title="Projects">
+	<div class="projects-page">
+
+		
+		<div class="filter-section">
+			<div class="filter-buttons">
+				<button class="filter-btn active" data-tag="all">All</button>
+				{allTags.map(tag => (
+					<button class="filter-btn" data-tag={tag}>{tag}</button>
+				))}
+			</div>
+		</div>
+		
+		<div class="projects-grid" id="projects-grid">
+			{projects.map(project => (
+				<div class="project-item" data-tags={project.tags.join(',')}>
+					<Card 
+						label={project.title} 
+						image={project.image} 
+						link={project.link}
+					/>
+				</div>
+			))}
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.projects-page {
+		background-color: var(--background-blue);
+		min-height: 100vh;
+		padding: var(--border-indent) 3rem;
+		justify-content: flex-start;
+	}
+	
+	.projects-header {
+		margin-bottom: 3rem;
+		text-align: left;
+	}
+	
+	.projects-header h1 {
+		font-size: 4rem;
+		color: white;
+		margin: 0;
+		font-weight: 700;
+	}
+	
+	.filter-section {
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+	
+	.filter-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+	
+	.filter-btn {
+		background-color: transparent;
+		border: 1px solid #3A468C;
+		border-radius: 20px;
+		color: #3A468C;
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	
+	.filter-btn:hover {
+
+
+	border: 1px solid #F4C97E;
+		color: #F4C97E;
+	}
+	
+	.filter-btn.active {
+		background-color: #F4C97E;
+		color: var(--background-blue);;
+	}
+	
+	.projects-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 3rem;
+		max-width: 1600px;
+		margin: 0 auto;
+		justify-content: space-around;
+	}
+	
+	.project-item {
+		transition: all 0.3s ease;
+	}
+	
+	.project-item.hidden {
+		display: none;
+	}
+	
+	@media (max-width: 768px) {
+		.projects-page {
+			padding: var(--border-indent) 1.5rem;
+		}
+		
+		.projects-header {
+			margin-left: 0;
+		}
+		
+		.projects-header h1 {
+			font-size: 2.5rem;
+		}
+		
+		.projects-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const filterButtons = document.querySelectorAll('.filter-btn');
+		const projectItems = document.querySelectorAll('.project-item');
+		
+		filterButtons.forEach(button => {
+			button.addEventListener('click', function() {
+				filterButtons.forEach(btn => btn.classList.remove('active'));
+				this.classList.add('active');
+				const selectedTag = this.getAttribute('data-tag');
+				
+				projectItems.forEach(item => {
+					if (selectedTag === 'all') {
+						item.classList.remove('hidden');
+					} else {
+						const itemTags = item.getAttribute('data-tags').split(',');
+						if (itemTags.includes(selectedTag)) {
+							item.classList.remove('hidden');
+						} else {
+							item.classList.add('hidden');
+						}
+					}
+				});
+			});
+		});
+	});
+</script>

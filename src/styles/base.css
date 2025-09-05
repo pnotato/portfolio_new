@@ -4,6 +4,7 @@
 :root {
   --border-width: 20px;
   --border-indent: calc(var(--border-width) * 3.5);
+  --title-indent: 3rem;
   --background-blue: #181743;
 }
 
