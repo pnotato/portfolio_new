@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/header.astro'
+import '../styles/base.css';
 const { link, title} = Astro.props as {
     link: string;
     title: string;
@@ -11,7 +12,7 @@ const { link, title} = Astro.props as {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="stylesheet" href="/src/styles/base.css" />
+
 		<title>Nicholas Chan </title>
 	</head>
 	<body>
@@ -23,4 +24,3 @@ const { link, title} = Astro.props as {
 		</div>
 	</body>
 </html>
-

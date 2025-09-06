@@ -16,13 +16,9 @@
 		<div class="stars">
 			<div></div><div></div><div></div>
 		</div>
-				<div class="stars">
+		<div class="stars">
 			<div></div><div></div><div></div>
 		</div>
-
-		
-
-        
 
 		<div class="stars-2"></div>
 		<div class="stars-2"></div>
@@ -38,34 +34,19 @@
 		<div class="planet-ring"></div>
 		<div class="planet-crater"></div>
 	</div>
-
 </div>
-<style lang="scss">
-    $purple1 : #181743;
-$purple2 : #730F8E;
-$purple-pink:#A21190;
-$pink : #C62368;
-$purple-pink1: #CE0682;
-$blue: #8FA8D9;
-$light-pink: #eb6db4;
-$fuscia : #C62368;
-$meteor-yellow: #fedc01;
 
-@mixin keyframes($animationName) {
-  @-webkit-keyframes #{"$animationName"} {
-    @content;
-  }
-  @-moz-keyframes #{$animationName} {
-    @content;
-  }
-
-  @-ms-keyframes #{$animationName} {
-    @content;
-  }
-
-  @keyframes #{$animationName} {
-    @content;
-  }
+<style>
+:root {
+	--purple1: #181743;
+	--purple2: #730F8E;
+	--purple-pink: #A21190;
+	--pink: #C62368;
+	--purple-pink1: #CE0682;
+	--blue: #8FA8D9;
+	--light-pink: #eb6db4;
+	--fuscia: #C62368;
+	--meteor-yellow: #fedc01;
 }
 
 .planet-scene {
@@ -85,94 +66,106 @@ $meteor-yellow: #fedc01;
 	height: 10em;
 	padding: 1em;
 	border-radius: 10em;
-	background: linear-gradient(150deg, $fuscia, transparent,transparent);
+	background: linear-gradient(150deg, var(--fuscia), transparent, transparent);
 	position: absolute;
 	animation: planet-moving 2s ease infinite;
 	transition: all 0.2s ease;
-
 	left: 42%;
-	
-	.shine {
-		width: 0;
-		height: 0;
-		position: absolute;
-		border-left: 1.75em solid transparent;
-		border-right: 1.75em solid transparent;
-		border-top: 1.4em solid $light-pink;
-		border-radius: 50%;
-		transform: rotate(-40deg);
-		top: 2.25em;
-		left: 1.9em;
-		&::after {
-			content:"";
-			position: absolute;
-			background: linear-gradient(190deg,#c90779, #770e8d, #35145a);
-			height: 8em;
-			width: 8em;
-			border-radius: 5em;
-			left: -3.9em;
-			top: -0.8em;
-		}
-	}
-	
-	.shine-2 {
-		position: absolute;
-		width: 0.65em;
-		height: 0.55em;
-		background: #eb6db4;
-		border-radius: 5em;
-		top: 3.25em;
-		left: 2.275em;
-		transform: rotate(-55deg);
-		&::after {
-			@extend .shine-2;
-			content: "";
-			top: 0.45em;
-			left: 2.175em;
-			transform: rotate(206deg);
-			width: 0.6em;
-			height: 0.5em;
-		}
-		
-		&::before {
-			content: "";
-			position: absolute;
-			height: 0.5em;
-			width: 0.7em;
-			background: $light-pink;
-			border-radius: 10em;
-			top: 1.2em;
-			left: 3em;
-			transform: rotate(40deg);
-		}
-	}
-	
-	.planet-ring {
-		width: 15em;
-		height: 2em;
-		position: absolute;
-		border-top: 1em solid transparent;
-		border-bottom: 1em solid $fuscia;
-		border-left: 1.25em solid $fuscia;
-		border-right: 1.25em solid $fuscia;
-		border-radius: 100%;
-		left: -2em;
-		transform: rotate(-30deg);
-		top: 4em;
-	}
-	
-	.planet-ring2 {
-		@extend .planet-ring;
-		border-top: 1em solid $fuscia;
-		z-index: -1;
-	} 
-	
-	.planet {
-		width: 10em;
-		height: 10em;
-		background: linear-gradient(150deg, $fuscia, $purple2, transparent);
-		border-radius: 5em;
-	}
+}
+
+.planet-container .shine {
+	width: 0;
+	height: 0;
+	position: absolute;
+	border-left: 1.75em solid transparent;
+	border-right: 1.75em solid transparent;
+	border-top: 1.4em solid var(--light-pink);
+	border-radius: 50%;
+	transform: rotate(-40deg);
+	top: 2.25em;
+	left: 1.9em;
+}
+
+.planet-container .shine::after {
+	content: "";
+	position: absolute;
+	background: linear-gradient(190deg, #c90779, #770e8d, #35145a);
+	height: 8em;
+	width: 8em;
+	border-radius: 5em;
+	left: -3.9em;
+	top: -0.8em;
+}
+
+.planet-container .shine-2 {
+	position: absolute;
+	width: 0.65em;
+	height: 0.55em;
+	background: #eb6db4;
+	border-radius: 5em;
+	top: 3.25em;
+	left: 2.275em;
+	transform: rotate(-55deg);
+}
+
+.planet-container .shine-2::after {
+	content: "";
+	position: absolute;
+	width: 0.6em;
+	height: 0.5em;
+	background: #eb6db4;
+	border-radius: 5em;
+	top: 0.45em;
+	left: 2.175em;
+	transform: rotate(206deg);
+}
+
+.planet-container .shine-2::before {
+	content: "";
+	position: absolute;
+	height: 0.5em;
+	width: 0.7em;
+	background: var(--light-pink);
+	border-radius: 10em;
+	top: 1.2em;
+	left: 3em;
+	transform: rotate(40deg);
+}
+
+.planet-container .planet-ring {
+	width: 15em;
+	height: 2em;
+	position: absolute;
+	border-top: 1em solid transparent;
+	border-bottom: 1em solid var(--fuscia);
+	border-left: 1.25em solid var(--fuscia);
+	border-right: 1.25em solid var(--fuscia);
+	border-radius: 100%;
+	left: -2em;
+	transform: rotate(-30deg);
+	top: 4em;
+}
+
+.planet-container .planet-ring2 {
+	width: 15em;
+	height: 2em;
+	position: absolute;
+	border-top: 1em solid var(--fuscia);
+	border-bottom: 1em solid var(--fuscia);
+	border-left: 1.25em solid var(--fuscia);
+	border-right: 1.25em solid var(--fuscia);
+	border-radius: 100%;
+	left: -2em;
+	transform: rotate(-30deg);
+	top: 4em;
+	z-index: -1;
+}
+
+.planet-container .planet {
+	width: 10em;
+	height: 10em;
+	background: linear-gradient(150deg, var(--fuscia), var(--purple2), transparent);
+	border-radius: 5em;
 }
 
 .stars-container {
@@ -182,151 +175,142 @@ $meteor-yellow: #fedc01;
 	left: 0;
 	top: 0;
 	transform: none;
-	
-	.stars {
-		width: 8.5em;
-		top: 7em;
-		position: relative;
-		left: 11em;
-		div:nth-child(1) {
-			width: 1em;
-			position: relative;
-			height: 0.3em;
-			border-radius: 100%;
-			background: #fff;
-			animation: twinkle-width 1s ease infinite;
-		}
-		div:nth-child(2) {
-			width: 0.3em;
-			height: 1em;
-			top: -0.25em;
-			position: absolute;
-			background: #fff;
-			border-radius: 100%;
-			left: 0.35em;
-			top: -0.35em;
-			transform-origin: middle;
-			animation: twinkle-height 1s ease infinite;
-		}	
-		
-		div:nth-child(3) {
-			background: #fff;
-			content: "";
-			position: absolute;
-			width: 0.5em;
-			height: 0.5em;
-			left: 0.25em;
-			top: -0.1em;
-			border-radius: 5em;
-		}
-	}
+}
 
-	.stars:nth-child(1) {
-		position: relative;
-		transform: scale(0.8);
-		top: 5em;
-		left: 9em;
-		div {
-			animation-delay: 0.5s;
-		}
-	}
-	
-	.stars:nth-child(2) {
-		position: relative;
-		transform: scale(1);
-		top: 3em;
-		left: 4em;
-		div {
-			animation-delay: 0.5s;
-		}
-	}
-	
+.stars-container .stars {
+	width: 8.5em;
+	top: 7em;
+	position: relative;
+	left: 11em;
+}
 
-	
-	.stars:nth-child(3) {
-		position: relative;
-		transform: scale(1);
-		top: 4.5em;
-		left: 20em;
-		div {
-			animation-delay: 0.3s;
-		}
-	}
+.stars-container .stars div:nth-child(1) {
+	width: 1em;
+	position: relative;
+	height: 0.3em;
+	border-radius: 100%;
+	background: #fff;
+	animation: twinkle-width 1s ease infinite;
+}
 
-		.stars:nth-child(4) {
-		position: relative;
-		transform: scale(0.8);
-		top: 16em;
-		left: 3em;
-		div {
-			animation-delay: 0.8s;
-		}
-	
-	}
+.stars-container .stars div:nth-child(2) {
+	width: 0.3em;
+	height: 1em;
+	top: -0.25em;
+	position: absolute;
+	background: #fff;
+	border-radius: 100%;
+	left: 0.35em;
+	top: -0.35em;
+	transform-origin: middle;
+	animation: twinkle-height 1s ease infinite;
+}
 
+.stars-container .stars div:nth-child(3) {
+	background: #fff;
+	content: "";
+	position: absolute;
+	width: 0.5em;
+	height: 0.5em;
+	left: 0.25em;
+	top: -0.1em;
+	border-radius: 5em;
+}
 
+.stars-container .stars:nth-child(1) {
+	position: relative;
+	transform: scale(0.8);
+	top: 5em;
+	left: 9em;
+}
 
-	.stars:nth-child(5) {
-		position: relative;
-		transform: scale(0.5);
-		top: 1.5em;
-		left: 12.5em;
-		div {
-			animation-delay: 0.6s;
-		}
-	
-	}
+.stars-container .stars:nth-child(1) div {
+	animation-delay: 0.5s;
+}
 
-			.stars:nth-child(6) {
-		position: relative;
-		transform: scale(0.5);
-		top: 12.5em;
-		left: 4.5em;
-		div {
-			animation-delay: 0.8s;
-		}
-	
-	}
-	
-	.stars-2 {
-		border-radius: 100%;
-		position: absolute;
-		animation: twinkle 0.5s ease infinite;
-	}
-	
-	.stars-2:nth-child(5) {
-		width: 0.5em;
-		height: 0.5em;
-		background: linear-gradient(to right, $purple2, transparent);
-		left: 7.5em;
-		top: 6em;
-		animation-delay: 0.2s;
-	}
-	
-	.stars-2:nth-child(6) {
-		width: 0.5em;
-		height: 0.5em;
-		background: linear-gradient(to right, transparent, $pink);
-		left: 21em;
-		top: -2.5em;
-	}
-	
-	.stars-2:nth-child(7) {
-		width: 0.4em;
-		height: 0.4em;
-		background: linear-gradient(to right, transparent, $purple2);
-		left: 17.5em;
-		top: -3.5em;
-		animation-delay: 0.8s;
-		animation-duration: 1s;
-	}
+.stars-container .stars:nth-child(2) {
+	position: relative;
+	transform: scale(1);
+	top: 3em;
+	left: 4em;
+}
+
+.stars-container .stars:nth-child(2) div {
+	animation-delay: 0.5s;
+}
+
+.stars-container .stars:nth-child(3) {
+	position: relative;
+	transform: scale(1);
+	top: 4.5em;
+	left: 20em;
+}
+
+.stars-container .stars:nth-child(3) div {
+	animation-delay: 0.3s;
+}
+
+.stars-container .stars:nth-child(4) {
+	position: relative;
+	transform: scale(0.8);
+	top: 16em;
+	left: 3em;
+}
+
+.stars-container .stars:nth-child(4) div {
+	animation-delay: 0.8s;
+}
+
+.stars-container .stars:nth-child(5) {
+	position: relative;
+	transform: scale(0.5);
+	top: 1.5em;
+	left: 12.5em;
+}
+
+.stars-container .stars:nth-child(5) div {
+	animation-delay: 0.6s;
+}
+
+.stars-container .stars:nth-child(6) {
+	position: relative;
+	transform: scale(0.5);
+	top: 12.5em;
+	left: 4.5em;
+}
+
+.stars-container .stars:nth-child(6) div {
+	animation-delay: 0.8s;
+}
+
+.stars-container .stars-2 {
+	border-radius: 100%;
+	position: absolute;
+	animation: twinkle 0.5s ease infinite;
+}
+
+.stars-container .stars-2:nth-child(7) {
+	width: 0.5em;
+	height: 0.5em;
+	background: linear-gradient(to right, var(--purple2), transparent);
+	left: 7.5em;
+	top: 6em;
+	animation-delay: 0.2s;
+}
+
+.stars-container .stars-2:nth-child(8) {
+	width: 0.5em;
+	height: 0.5em;
+	background: linear-gradient(to right, transparent, var(--pink));
+	left: 21em;
+	top: -2.5em;
 }
 
 .moon {
 	width: 5em;
 	height: 5em;
 	border-radius: 100%;
-	background: linear-gradient(150deg, $blue 55%, $fuscia 98%);
+	background: linear-gradient(150deg, var(--blue) 55%, var(--fuscia) 98%);
 	position: absolute;
 	top: 20%; 
 	left: 10%;
@@ -336,33 +320,124 @@ $meteor-yellow: #fedc01;
 	will-change: transform;
 }
 
-@include keyframes(planet-moving) {
-	0%{top:30%}
-	50%{top:31%}
-	100%{top:30%}
+/* Keyframe animations */
+@-webkit-keyframes planet-moving {
+	0% { top: 30%; }
+	50% { top: 31%; }
+	100% { top: 30%; }
 }
 
-@include keyframes(planet-moving2) {
+@-moz-keyframes planet-moving {
+	0% { top: 30%; }
+	50% { top: 31%; }
+	100% { top: 30%; }
+}
+
+@-ms-keyframes planet-moving {
+	0% { top: 30%; }
+	50% { top: 31%; }
+	100% { top: 30%; }
+}
+
+@keyframes planet-moving {
+	0% { top: 30%; }
+	50% { top: 31%; }
+	100% { top: 30%; }
+}
+
+@-webkit-keyframes planet-moving2 {
 	0% { transform: translateY(3rem); }
-	50% { transform: translateY(3rem + 0.2rem); }
+	50% { transform: translateY(calc(3rem + 0.2rem)); }
 	100% { transform: translateY(3rem); }
 }
 
-@include keyframes(twinkle-height) {
-	0% { height: 1em; top: -0.35em}
-	50% { height: 0.5em; top: -0.15em}
-	100% { height: 1em; top: -0.35em}
+@-moz-keyframes planet-moving2 {
+	0% { transform: translateY(3rem); }
+	50% { transform: translateY(calc(3rem + 0.2rem)); }
+	100% { transform: translateY(3rem); }
 }
 
-@include keyframes(twinkle-width) {
-	0% { width: 1em; left: 0em}
-	50% { width: 0.5em; left: 0.25em}
-	100% { width: 1em; left: 0em}
+@-ms-keyframes planet-moving2 {
+	0% { transform: translateY(3rem); }
+	50% { transform: translateY(calc(3rem + 0.2rem)); }
+	100% { transform: translateY(3rem); }
 }
 
-@include keyframes(twinkle) {
-	0%{opacity:0}
-	50%{opacity:1}
-	100%{opacity:0}
+@keyframes planet-moving2 {
+	0% { transform: translateY(3rem); }
+	50% { transform: translateY(calc(3rem + 0.2rem)); }
+	100% { transform: translateY(3rem); }
+}
+
+@-webkit-keyframes twinkle-height {
+	0% { height: 1em; top: -0.35em; }
+	50% { height: 0.5em; top: -0.15em; }
+	100% { height: 1em; top: -0.35em; }
+}
+
+@-moz-keyframes twinkle-height {
+	0% { height: 1em; top: -0.35em; }
+	50% { height: 0.5em; top: -0.15em; }
+	100% { height: 1em; top: -0.35em; }
+}
+
+@-ms-keyframes twinkle-height {
+	0% { height: 1em; top: -0.35em; }
+	50% { height: 0.5em; top: -0.15em; }
+	100% { height: 1em; top: -0.35em; }
+}
+
+@keyframes twinkle-height {
+	0% { height: 1em; top: -0.35em; }
+	50% { height: 0.5em; top: -0.15em; }
+	100% { height: 1em; top: -0.35em; }
+}
+
+@-webkit-keyframes twinkle-width {
+	0% { width: 1em; left: 0em; }
+	50% { width: 0.5em; left: 0.25em; }
+	100% { width: 1em; left: 0em; }
+}
+
+@-moz-keyframes twinkle-width {
+	0% { width: 1em; left: 0em; }
+	50% { width: 0.5em; left: 0.25em; }
+	100% { width: 1em; left: 0em; }
+}
+
+@-ms-keyframes twinkle-width {
+	0% { width: 1em; left: 0em; }
+	50% { width: 0.5em; left: 0.25em; }
+	100% { width: 1em; left: 0em; }
+}
+
+@keyframes twinkle-width {
+	0% { width: 1em; left: 0em; }
+	50% { width: 0.5em; left: 0.25em; }
+	100% { width: 1em; left: 0em; }
+}
+
+@-webkit-keyframes twinkle {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@-moz-keyframes twinkle {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@-ms-keyframes twinkle {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes twinkle {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
 }
 </style>
